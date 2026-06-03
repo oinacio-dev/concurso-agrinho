@@ -3,63 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 x Copa do Mundo</title>
-    
-    <style>
-        /* --- ESTILIZAÇÃO (O seu style.css) --- */
-        :root {
-            --verde-agro: #2e7d32;
-            --amarelo-copa: #fbc02d;
-            --azul-tech: #1565c0;
-            --claro: #f4f6f9;
-            --escuro: #212121;
-        }
+    <title>Agrinho 2026 - Copa do Mundo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--claro);
-            color: var(--escuro);
-            line-height: 1.6;
-        }
+    <header>
+        <div class="logo">Agrinho<span>2026</span></div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#quiz">Quiz</a>
+        </nav>
+    </header>
 
-        header {
-            background-color: var(--verde-agro);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    <section class="hero" id="inicio">
+        <div>
+            <h1>Campo e Futebol:<br>Conexões que Transformam</h1>
+            <p>Descubra como a tecnologia do Agro e a paixão da Copa do Mundo jogam no mesmo time para construir um futuro mais sustentável.</p>
+            <a href="#quiz" class="btn-primary">Jogar o Quiz</a>
+        </div>
+    </section>
 
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    <section class="tech-section" id="tecnologia">
+        <h2>Tecnologia nos Dois Campos</h2>
+        <p class="subtitle">A inovação conectando os gramados da Copa do Mundo e as plantações do futuro.</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No Campo de Futebol ⚽</th>
+                        <th>No Campo de Cultivo 🌾</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Drones que analisam o desgaste do gramado dos estádios.</td>
+                        <td>Drones que mapeiam a saúde das folhas e pragas na lavoura.</td>
+                    </tr>
+                    <tr>
+                        <td>Sensores de desempenho nos coletes dos atletas da Seleção.</td>
+                        <td>Sensores de umidade e nutrientes instalados direto no solo.</td>
+                    </tr>
+                    <tr>
+                        <td>Inteligência Artificial analisando táticas e jogadas em tempo real.</td>
+                        <td>IA prevendo o clima e otimizando o momento exato da colheita.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-        header .logo span {
-            color: var(--amarelo-copa);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--amarelo-copa);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align
+    <section class="quiz-section" id="quiz">
+        <h2>Quiz Agrinho & Copa</h2>
+        
+        <div id="quiz-container" class
