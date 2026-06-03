@@ -26,15 +26,3 @@ function loadQuestion() {
     if (currentQuestionIndex < questions.length) {
         const currentQuestion = questions[currentQuestionIndex];
         document.getElementById("question-text").innerText = currentQuestion.question;
-        
-        const buttons = document.querySelectorAll(".option-btn");
-        buttons[0].innerText = currentQuestion.A;
-        buttons[1].innerText = currentQuestion.B;
-    } else {
-        showResult();
-    }
-}
-
-// Avança para a próxima pergunta e computa os pontos
-function nextQuestion(answer) {
-    if
