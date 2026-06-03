@@ -4,79 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrinho 2026 x Copa do Mundo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    
+    <style>
+        /* --- ESTILIZAÇÃO (O seu style.css) --- */
+        :root {
+            --verde-agro: #2e7d32;
+            --amarelo-copa: #fbc02d;
+            --azul-tech: #1565c0;
+            --claro: #f4f6f9;
+            --escuro: #212121;
+        }
 
-    <header>
-        <div class="logo">Agrinho <span>Copa 2026</span></div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#quiz">Quiz Interativo</a>
-        </nav>
-    </header>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--claro);
+            color: var(--escuro);
+            line-height: 1.6;
+        }
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Campo e Estádio: Jogando no Mesmo Time!</h1>
-            <p>Descubra como a inovação, a robótica e a sustentabilidade conectam a tecnologia do Agrinho 2026 com as grandes seleções do futebol mundial.</p>
-            <a href="#quiz" class="btn-primary">Jogar o Quiz</a>
-        </div>
-    </section>
+        header {
+            background-color: var(--verde-agro);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    <section id="tecnologia" class="tech-section">
-        <h2>Tecnologia nos Dois Campos</h2>
-        <p class="subtitle">A mesma inteligência que move a Copa do Mundo, alimenta e transforma o nosso agro.</p>
-        
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>⚽ No Campo de Futebol</th>
-                        <th>🌾 No Campo de Cultivo (Agro)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Drones</strong> que analisam o desgaste do gramado dos estádios.</td>
-                        <td><strong>Drones</strong> que mapeiam pragas e a saúde da lavoura.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sensores</strong> de desempenho nos coletes dos atletas da Seleção.</td>
-                        <td><strong>Sensores</strong> de IoT que medem a umidade e os nutrientes do solo.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Inteligência Artificial</strong> analisando táticas e jogadas em tempo real.</td>
-                        <td><strong>IA e Robótica</strong> prevendo o clima e automatizando colheitas sustentáveis.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-    <section id="quiz" class="quiz-section">
-        <h2>Quiz: Que tipo de jogador do Agro você é?</h2>
-        <div class="quiz-container">
-            <div id="question-box">
-                <p id="question-text">Carregando pergunta...</p>
-                <div class="options-container">
-                    <button class="option-btn" onclick="nextQuestion('A')">Opção A</button>
-                    <button class="option-btn" onclick="nextQuestion('B')">Opção B</button>
-                </div>
-            </div>
-            <div id="result-box" class="hidden">
-                <h3>Seu Resultado:</h3>
-                <p id="result-text"></p>
-                <button class="btn-primary" onclick="restartQuiz()">Jogar Novamente</button>
-            </div>
-        </div>
-    </section>
+        header .logo span {
+            color: var(--amarelo-copa);
+        }
 
-    <footer>
-        <p>&copy; 2026 Projeto Agrinho - Tecnologia, Sustentabilidade e Futebol.</p>
-    </footer>
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        nav a:hover {
+            color: var(--amarelo-copa);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align
