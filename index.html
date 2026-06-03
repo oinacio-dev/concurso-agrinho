@@ -13,7 +13,7 @@
         <nav>
             <a href="#inicio">Início</a>
             <a href="#tecnologia">Tecnologia</a>
-            <a href="#quiz">Quiz</a>
+            <a href="#animacao">Grande Jogo</a>
         </nav>
     </header>
 
@@ -21,7 +21,7 @@
         <div>
             <h1>Campo e Futebol:<br>Conexões que Transformam</h1>
             <p>Descubra como a tecnologia do Agro e a paixão da Copa do Mundo jogam no mesmo time para construir um futuro mais sustentável.</p>
-            <a href="#quiz" class="btn-primary">Jogar o Quiz</a>
+            <a href="#animacao" class="btn-primary">Ver o Jogo</a>
         </div>
     </section>
 
@@ -55,7 +55,33 @@
         </div>
     </section>
 
-    <section class="quiz-section" id="quiz">
-        <h2>Quiz Agrinho & Copa</h2>
+    <section class="game-section" id="animacao">
+        <h2>Craques do Agro em Campo</h2>
+        <p class="subtitle">Clique no botão para ver o Milho e a Soja tabelando rumo ao futuro sustentável!</p>
         
-        <div id="quiz-container" class
+        <div class="field-container">
+            <div class="character corn" id="milho">
+                <div class="eyes"><span></span><span></span></div>
+                <div class="smile"></div>
+                <div class="label">Milho 🌽</div>
+            </div>
+
+            <div class="football" id="bola"></div>
+
+            <div class="character soy" id="soja">
+                <div class="eyes"><span></span><span></span></div>
+                <div class="smile"></div>
+                <div class="label">Soja 🌱</div>
+            </div>
+        </div>
+
+        <button class="btn-primary" onclick="chutarBola()">Dar o Chute Inicial! ⚽</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Projeto Agrinho - Campo e Cidade jogando juntos por um futuro sustentável.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
