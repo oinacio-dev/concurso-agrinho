@@ -14,7 +14,7 @@ body {
 
 /* Menu de Navegação */
 header {
-    background-color: #0b5125; /* Verde Agro */
+    background-color: #0b5125;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@ header .logo {
 }
 
 header .logo span {
-    color: #f1c40f; /* Amarelo Copa */
+    color: #f1c40f;
 }
 
 nav a {
@@ -46,7 +46,7 @@ nav a:hover {
     color: #f1c40f;
 }
 
-/* Seção Hero (Banner) */
+/* Seção Hero */
 .hero {
     background: linear-gradient(rgba(11, 81, 37, 0.8), rgba(11, 81, 37, 0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200') no-repeat center center/cover;
     height: 70vh;
@@ -81,13 +81,14 @@ nav a:hover {
     text-decoration: none;
     transition: background 0.3s;
     display: inline-block;
+    margin-top: 20px;
 }
 
 .btn-primary:hover {
     background-color: #d4ac0d;
 }
 
-/* Seção Tecnologia (Tabela) */
+/* Seção Tecnologia */
 .tech-section {
     padding: 60px 10%;
     text-align: center;
@@ -135,22 +136,149 @@ tr:hover {
     background-color: #f1f8f3;
 }
 
-/* Seção do Quiz */
-.quiz-section {
+/* NOVA SEÇÃO: Animação do Jogo */
+.game-section {
     background-color: #e8f0eb;
     padding: 60px 10%;
     text-align: center;
 }
 
-.quiz-section h2 {
+.game-section h2 {
     color: #0b5125;
-    margin-bottom: 30px;
 }
 
-#quiz-container {
-    background: white;
-    max-width: 600px;
+/* O Gramado */
+.field-container {
+    background-color: #27ae60;
+    border: 5px solid #fff;
+    border-radius: 15px;
+    max-width: 800px;
+    height: 300px;
     margin: 0 auto;
-    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px 50px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.2), 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Linha de meio de campo decorativa */
+.field-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Base dos Personagens */
+.character {
+    width: 80px;
+    height: 110px;
+    border-radius: 40px 40px 20px 20px;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+    z-index: 2;
+}
+
+/* Visual do Milho */
+.corn {
+    background: #f1c40f; /* Corpo Amarelo */
+    border: 4px solid #d4ac0d;
+}
+/* Folhas do Milho */
+.corn::border-left-v {
+    content: '';
+}
+.corn::before, .corn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 25px;
+    height: 70px;
+    background: #2ecc71;
+    border-radius: 20px 20px 0 0;
+}
+.corn::before { left: -10px; transform: rotate(-15px); }
+.corn::after { right: -10px; transform: rotate(15px); }
+
+/* Visual da Soja */
+.soy {
+    background: #a3e4d7; /* Corpo Verde Claro */
+    border: 4px solid #76d7c4;
+    border-radius: 50%; /* Formato de Grão */
+    width: 80px;
+    height: 80px;
+}
+/* Broto da Soja */
+.soy::before {
+    content: '🌱';
+    position: absolute;
+    top: -25px;
+    font-size: 24px;
+}
+
+/* Detalhes do Rosto (Olhos e Sorriso) */
+.eyes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+.eyes span {
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+}
+.smile {
+    width: 20px;
+    height: 10px;
+    border-bottom: 3px solid #000;
+    border-radius: 0 0 10px 10px;
+}
+.label {
+    position: absolute;
+    bottom: -30px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 2px 8px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* A Bola de Futebol */
+.football {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border: 3px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 120px; /* Começa perto do Milho */
+    background-image: radial-gradient(circle, #333 20%, transparent 20%), 
+                      radial-gradient(circle, #333 20%, transparent 20%);
+    background-size: 15px 15px;
+    background-position: 0 0, 7.5px 7.5px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+/* Rodapé */
+footer {
+    background-color: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
