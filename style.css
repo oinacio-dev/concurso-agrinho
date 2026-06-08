@@ -3,282 +3,140 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #f4f7f5;
-    color: #333;
-}
-
-/* Menu de Navegação */
-header {
-    background-color: #0b5125;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-header .logo span {
-    color: #f1c40f;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #f1c40f;
-}
-
-/* Seção Hero */
-.hero {
-    background: linear-gradient(rgba(11, 81, 37, 0.8), rgba(11, 81, 37, 0.6)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200') no-repeat center center/cover;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 30px;
-}
-
-.btn-primary {
-    background-color: #f1c40f;
-    color: #111;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.3s;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn-primary:hover {
-    background-color: #d4ac0d;
-}
-
-/* Seção Tecnologia */
-.tech-section {
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.tech-section h2 {
-    font-size: 32px;
-    color: #0b5125;
-}
-
-.subtitle {
-    margin-bottom: 40px;
-    color: #666;
-}
-
-.table-container {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-th, td {
-    padding: 18px;
-    text-align: left;
-}
-
-th {
-    background-color: #0b5125;
-    color: white;
-    font-size: 18px;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f8f3;
-}
-
-/* NOVA SEÇÃO: Animação do Jogo */
-.game-section {
-    background-color: #e8f0eb;
-    padding: 60px 10%;
-    text-align: center;
-}
-
-.game-section h2 {
-    color: #0b5125;
-}
-
-/* O Gramado */
-.field-container {
-    background-color: #27ae60;
-    border: 5px solid #fff;
-    border-radius: 15px;
-    max-width: 800px;
-    height: 300px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 20px 50px;
-    box-shadow: inset 0 0 40px rgba(0,0,0,0.2), 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Linha de meio de campo decorativa */
-.field-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-/* Base dos Personagens */
-.character {
-    width: 80px;
-    height: 110px;
-    border-radius: 40px 40px 20px 20px;
-    position: relative;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    background-color: #e6f4ea;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    transition: transform 0.2s;
-    z-index: 2;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-/* Visual do Milho */
-.corn {
-    background: #f1c40f; /* Corpo Amarelo */
-    border: 4px solid #d4ac0d;
-}
-/* Folhas do Milho */
-.corn::border-left-v {
-    content: '';
-}
-.corn::before, .corn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 25px;
-    height: 70px;
-    background: #2ecc71;
-    border-radius: 20px 20px 0 0;
-}
-.corn::before { left: -10px; transform: rotate(-15px); }
-.corn::after { right: -10px; transform: rotate(15px); }
-
-/* Visual da Soja */
-.soy {
-    background: #a3e4d7; /* Corpo Verde Claro */
-    border: 4px solid #76d7c4;
-    border-radius: 50%; /* Formato de Grão */
-    width: 80px;
-    height: 80px;
-}
-/* Broto da Soja */
-.soy::before {
-    content: '🌱';
-    position: absolute;
-    top: -25px;
-    font-size: 24px;
-}
-
-/* Detalhes do Rosto (Olhos e Sorriso) */
-.eyes {
-    display: flex;
-    gap: 12px;
+h1 {
+    color: #1b5e20;
     margin-bottom: 5px;
+    text-align: center;
+    font-size: 2rem;
 }
-.eyes span {
-    width: 10px;
-    height: 10px;
-    background: #000;
-    border-radius: 50%;
-}
-.smile {
-    width: 20px;
-    height: 10px;
-    border-bottom: 3px solid #000;
-    border-radius: 0 0 10px 10px;
-}
-.label {
-    position: absolute;
-    bottom: -30px;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 12px;
+
+p {
+    color: #558b2f;
+    margin-bottom: 20px;
     font-weight: bold;
 }
 
-/* A Bola de Futebol */
-.football {
-    width: 35px;
-    height: 35px;
-    background: white;
-    border: 3px solid #333;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 20px;
-    left: 120px; /* Começa perto do Milho */
-    background-image: radial-gradient(circle, #333 20%, transparent 20%), 
-                      radial-gradient(circle, #333 20%, transparent 20%);
-    background-size: 15px 15px;
-    background-position: 0 0, 7.5px 7.5px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.3);
-    z-index: 3;
+/* O Campo de Futebol */
+.campo {
+    width: 800px;
+    height: 400px;
+    background-color: #4caf50;
+    border: 5px solid #ffffff;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Rodapé */
-footer {
-    background-color: #111;
-    color: #aaa;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
+.linha-meio {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #ffffff;
+    transform: translateX(-50%);
 }
+
+.circulo-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* As Traves (Gols) */
+.gol-esquerdo, .gol-direito {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 120px;
+    border: 4px solid #ffffff;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.gol-esquerdo { left: 0; border-left: none; }
+.gol-direito { right: 0; border-right: none; }
+
+/* Estilo dos Personagens */
+.personagem {
+    font-size: 50px;
+    position: absolute;
+    top: 45%;
+    transition: all 0.5s ease;
+    user-select: none;
+}
+
+#milho {
+    left: 15%;
+    animation: balanco 2s infinite alternate;
+}
+
+#soja {
+    right: 15%;
+    animation: balanco 2s infinite alternate-reverse;
+}
+
+/* Estilo da Bola */
+.bola {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Animação de respiração/balanço dos personagens */
+@keyframes balanco {
+    0% { transform: translateY(-10px) rotate(-5deg); }
+    100% { transform: translateY(10px) rotate(5deg); }
+}
+
+/* Botões de Comando */
+.controles {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#btn-milho { background-color: #fbc02d; color: #333; }
+#btn-milho:hover { background-color: #fdd835; }
+
+#btn-soja { background-color: #8d6e63; }
+#btn-soja:hover { background-color: #a1887f; }
+
+#btn-reset { background-color: #757575; }
+#btn-reset:hover { background-color: #9e9e9e; }
