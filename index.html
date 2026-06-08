@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
+    <title>Copa do Agro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Agro Forte, Futuro Sustentável</h1>
-    <p>O poder da nossa agricultura jogando no mesmo time do futuro!</p>
+    <header>
+        <h1>🏆 Copa do Mundo do Agro Sustentável 🌿</h1>
+        <p>Produtividade e preservação jogando no mesmo time!</p>
+    </header>
 
-    <div class="campo">
-        <div class="linha-meio"></div>
-        <div class="circulo-central"></div>
-        <div class="gol-esquerdo"></div>
-        <div class="gol-direito"></div>
+    <main>
+        <div class="placar">
+            <div class="time">🌽 Milho Safrinha FC: <span id="gols-milho">0</span></div>
+            <div class="versus">X</div>
+            <div class="time">🫛 Soja Biodiesel AC: <span id="gols-soja">0</span></div>
+        </div>
 
-        <div id="milho" class="personagem" title="Milho">🌽</div>
-        <div id="soja" class="personagem" title="Soja">🌱</div>
+        <div class="campo">
+            <div class="linha-meio"></div>
+            <div class="circulo-central"></div>
+            
+            <div class="gol gol-esquerdo"></div>
+            <div class="gol gol-direito"></div>
 
-        <div id="bola" class="bola">⚽</div>
-    </div>
+            <div id="milho" class="jogador">🌽</div>
+            <div id="soja" class="jogador">🫛</div>
 
-    <div class="controles">
-        <button id="btn-milho" onclick="chuteDoMilho()">Milho Chuta!</button>
-        <button id="btn-reset" onclick="reiniciar()">Meio de Campo</button>
-        <button id="btn-soja" onclick="chuteDaSoja()">Soja Chuta!</button>
-    </div>
+            <div id="bola">⚽</div>
+        </div>
+
+        <section class="info-agro">
+            <h2>Por que esse time é campeão?</h2>
+            <p>A rotação de culturas entre o milho e a soja protege o solo, economiza água e reduz a necessidade de fertilizantes químicos. É o Agro brasileiro batendo um bolão na sustentabilidade!</p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
