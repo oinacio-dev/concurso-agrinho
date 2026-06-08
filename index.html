@@ -3,84 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Copa do Mundo</title>
+    <title>Agro Forte, Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">Agrinho<span>2026</span></div>
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#animacao">Grande Jogo</a>
-        </nav>
-    </header>
+    <h1>Agro Forte, Futuro Sustentável</h1>
+    <p>O poder da nossa agricultura jogando no mesmo time do futuro!</p>
 
-    <section class="hero" id="inicio">
-        <div>
-            <h1>Campo e Futebol:<br>Conexões que Transformam</h1>
-            <p>Descubra como a tecnologia do Agro e a paixão da Copa do Mundo jogam no mesmo time para construir um futuro mais sustentável.</p>
-            <a href="#animacao" class="btn-primary">Ver o Jogo</a>
-        </div>
-    </section>
+    <div class="campo">
+        <div class="linha-meio"></div>
+        <div class="circulo-central"></div>
+        <div class="gol-esquerdo"></div>
+        <div class="gol-direito"></div>
 
-    <section class="tech-section" id="tecnologia">
-        <h2>Tecnologia nos Dois Campos</h2>
-        <p class="subtitle">A inovação conectando os gramados da Copa do Mundo e as plantações do futuro.</p>
-        
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>No Campo de Futebol ⚽</th>
-                        <th>No Campo de Cultivo 🌾</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Drones que analisam o desgaste do gramado dos estádios.</td>
-                        <td>Drones que mapeiam a saúde das folhas e pragas na lavoura.</td>
-                    </tr>
-                    <tr>
-                        <td>Sensores de desempenho nos coletes dos atletas da Seleção.</td>
-                        <td>Sensores de umidade e nutrientes instalados direto no solo.</td>
-                    </tr>
-                    <tr>
-                        <td>Inteligência Artificial analisando táticas e jogadas em tempo real.</td>
-                        <td>IA prevendo o clima e otimizando o momento exato da colheita.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <div id="milho" class="personagem" title="Milho">🌽</div>
+        <div id="soja" class="personagem" title="Soja">🌱</div>
 
-    <section class="game-section" id="animacao">
-        <h2>Craques do Agro em Campo</h2>
-        <p class="subtitle">Clique no botão para ver o Milho e a Soja tabelando rumo ao futuro sustentável!</p>
-        
-        <div class="field-container">
-            <div class="character corn" id="milho">
-                <div class="eyes"><span></span><span></span></div>
-                <div class="smile"></div>
-                <div class="label">Milho 🌽</div>
-            </div>
+        <div id="bola" class="bola">⚽</div>
+    </div>
 
-            <div class="football" id="bola"></div>
-
-            <div class="character soy" id="soja">
-                <div class="eyes"><span></span><span></span></div>
-                <div class="smile"></div>
-                <div class="label">Soja 🌱</div>
-            </div>
-        </div>
-
-        <button class="btn-primary" onclick="chutarBola()">Dar o Chute Inicial! ⚽</button>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Projeto Agrinho - Campo e Cidade jogando juntos por um futuro sustentável.</p>
-    </footer>
+    <div class="controles">
+        <button id="btn-milho" onclick="chuteDoMilho()">Milho Chuta!</button>
+        <button id="btn-reset" onclick="reiniciar()">Meio de Campo</button>
+        <button id="btn-soja" onclick="chuteDaSoja()">Soja Chuta!</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
