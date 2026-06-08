@@ -1,52 +1,65 @@
 /* Configurações Gerais */
-* {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0fdf4;
+    color: #166534;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #e6f4ea;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    overflow: hidden;
 }
 
-h1 {
-    color: #1b5e20;
-    margin-bottom: 5px;
+header {
     text-align: center;
-    font-size: 2rem;
+    padding: 20px;
+    background-color: #15803d;
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-p {
-    color: #558b2f;
-    margin-bottom: 20px;
+/* Placar */
+.placar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #bbf7d0;
+    padding: 15px 30px;
+    border-radius: 50px;
+    margin: 20px auto;
+    font-size: 1.5rem;
     font-weight: bold;
+    width: 80%;
+    max-width: 600px;
+    border: 3px solid #166534;
 }
 
-/* O Campo de Futebol */
+.versus {
+    color: #b91c1c;
+    font-size: 1.8rem;
+}
+
+/* Campo de Futebol */
 .campo {
+    position: relative;
     width: 800px;
     height: 400px;
-    background-color: #4caf50;
-    border: 5px solid #ffffff;
-    position: relative;
-    border-radius: 8px;
+    background-color: #22c55e;
+    border: 5px solid white;
+    border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Marcações do Campo */
 .linha-meio {
     position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;
     width: 5px;
-    background-color: #ffffff;
+    background-color: white;
     transform: translateX(-50%);
 }
 
@@ -54,89 +67,48 @@ p {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 120px;
-    height: 120px;
-    border: 5px solid #ffffff;
+    width: 100px;
+    height: 100px;
+    border: 5px solid white;
     border-radius: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* As Traves (Gols) */
-.gol-esquerdo, .gol-direito {
+.gol {
     position: absolute;
-    top: 50%;
-    width: 30px;
-    height: 120px;
-    border: 4px solid #ffffff;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.1);
+    top: 150px;
+    width: 20px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px solid white;
 }
 .gol-esquerdo { left: 0; border-left: none; }
 .gol-direito { right: 0; border-right: none; }
 
-/* Estilo dos Personagens */
-.personagem {
-    font-size: 50px;
+/* Jogadores (Milho e Soja) */
+.jogador {
     position: absolute;
-    top: 45%;
-    transition: all 0.5s ease;
-    user-select: none;
+    font-size: 4rem;
+    bottom: 50px;
+    transition: transform 0.1s ease;
 }
 
-#milho {
-    left: 15%;
-    animation: balanco 2s infinite alternate;
+#milho { left: 100px; }
+#soja { right: 100px; }
+
+/* Animações de Chute (Gatilho via JS) */
+.chute-esquerda {
+    animation: chutarEsq 0.3s ease;
 }
 
-#soja {
-    right: 15%;
-    animation: balanco 2s infinite alternate-reverse;
+.chute-direita {
+    animation: chutarDir 0.3s ease;
 }
 
-/* Estilo da Bola */
-.bola {
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+@keyframes chutarEsq {
+    0% { transform: rotate(0deg) translateX(0); }
+    50% { transform: rotate(20deg) translateX(30px); }
+    100% { transform: rotate(0deg) translateX(0); }
 }
 
-/* Animação de respiração/balanço dos personagens */
-@keyframes balanco {
-    0% { transform: translateY(-10px) rotate(-5deg); }
-    100% { transform: translateY(10px) rotate(5deg); }
-}
-
-/* Botões de Comando */
-.controles {
-    margin-top: 25px;
-    display: flex;
-    gap: 20px;
-}
-
-button {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-#btn-milho { background-color: #fbc02d; color: #333; }
-#btn-milho:hover { background-color: #fdd835; }
-
-#btn-soja { background-color: #8d6e63; }
-#btn-soja:hover { background-color: #a1887f; }
-
-#btn-reset { background-color: #757575; }
-#btn-reset:hover { background-color: #9e9e9e; }
+@keyframes ch
