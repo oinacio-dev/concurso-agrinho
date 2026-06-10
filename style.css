@@ -252,3 +252,38 @@ footer {
         height: 95px;
     }
 }
+
+/* Estilos adicionais para os novos recursos de nota máxima */
+.acessibilidade-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.acessibilidade-botoes button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+}
+
+.botoes-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.painel-info {
+    background-color: #f0f7f4;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .painel-info {
+    background-color: #3d3d3d;
+    color: #f5f5f5;
+}
