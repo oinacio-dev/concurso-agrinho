@@ -1,114 +1,211 @@
+/* Variáveis para controle de cores (Facilita o Modo Escuro) */
+:root {
+    --bg-color: #f4f9f4;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+    --primary-color: #27ae60;
+    --secondary-color: #2ecc71;
+    --accent-color: #e67e22;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #f5f5f5;
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+}
+
 /* Configurações Gerais */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0fdf4;
-    color: #166534;
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 header {
-    text-align: center;
-    padding: 20px;
-    background-color: #15803d;
+    background-color: var(--primary-color);
     color: white;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
 }
 
-/* Placar */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav ul {
+    list-width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Principal com Flexbox */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Elementos de Formulário */
+.input-group, .form-group {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, button {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color var(--transition-speed), transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Mecânica Visual do Campo de Futebol */
 .placar {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    background: #bbf7d0;
-    padding: 15px 30px;
-    border-radius: 50px;
-    margin: 20px auto;
-    font-size: 1.5rem;
     font-weight: bold;
-    width: 80%;
-    max-width: 600px;
-    border: 3px solid #166534;
+    margin: 15px 0;
+    background: #e8f5e9;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    color: #2e7d32;
 }
 
-.versus {
-    color: #b91c1c;
-    font-size: 1.8rem;
-}
-
-/* Campo de Futebol */
-.campo {
+.campo-futebol {
+    width: 100%;
+    height: 250px;
+    background-color: #2e7d32;
+    border: 4px solid white;
     position: relative;
-    width: 800px;
-    height: 400px;
-    background-color: #22c55e;
-    border: 5px solid white;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Marcações do Campo */
-.linha-meio {
+.trave {
+    width: 70%;
+    height: 100px;
+    border: 5px solid white;
+    border-top: none;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.alvo {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px dashed white;
+}
+
+.alvo:hover {
+    background-color: var(--accent-color);
+}
+
+.area-bola {
     position: absolute;
+    bottom: 20px;
     left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    background-color: white;
     transform: translateX(-50%);
 }
 
-.circulo-central {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    border: 5px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
+#bola-futebol {
+    font-size: 2.5rem;
+    transition: transform 0.5s ease-in-out;
 }
 
-.gol {
-    position: absolute;
-    top: 150px;
-    width: 20px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 3px solid white;
-}
-.gol-esquerdo { left: 0; border-left: none; }
-.gol-direito { right: 0; border-right: none; }
+/* Classes Auxiliares */
+.hidden { display: none; }
+.sucesso { color: #27ae60; font-weight: bold; }
 
-/* Jogadores (Milho e Soja) */
-.jogador {
-    position: absolute;
-    font-size: 4rem;
-    bottom: 50px;
-    transition: transform 0.1s ease;
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #2c3e50;
+    color: white;
 }
 
-#milho { left: 100px; }
-#soja { right: 100px; }
-
-/* Animações de Chute (Gatilho via JS) */
-.chute-esquerda {
-    animation: chutarEsq 0.3s ease;
+/* 📱 Responsividade (Media Queries) */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .campo-futebol {
+        height: 200px;
+    }
+    .trave {
+        width: 90%;
+    }
 }
-
-.chute-direita {
-    animation: chutarDir 0.3s ease;
-}
-
-@keyframes chutarEsq {
-    0% { transform: rotate(0deg) translateX(0); }
-    50% { transform: rotate(20deg) translateX(30px); }
-    100% { transform: rotate(0deg) translateX(0); }
-}
-
-@keyframes ch
