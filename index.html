@@ -8,25 +8,28 @@
 </head>
 <body>
 
-    <!-- Cabeçalho e Navegação -->
+    <!-- Cabeçalho com ferramentas de Acessibilidade solicitadas no Nível 4 -->
     <header>
         <div class="header-container">
             <h1>Agro Forte, Futuro Sustentável</h1>
-            <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+            <div class="acessibilidade-botoes">
+                <button id="font-increase" aria-label="Aumentar Fonte">A+</button>
+                <button id="font-decrease" aria-label="Diminuir Fonte">A-</button>
+                <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+            </div>
         </div>
         <nav>
             <ul>
                 <li><a href="#sobre">O Tema</a></li>
+                <li><a href="#glossario">Termos do Agro</a></li>
                 <li><a href="#jogo">Jogo do Futebol</a></li>
                 <li><a href="#formulario">Participe</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main>
-        
-        <!-- Seção de Identificação do Usuário -->
+        <!-- Identificação do Usuário -->
         <section id="boas-vindas" class="card">
             <h2>Bem-vindo à Jogada Sustentável!</h2>
             <div class="input-group">
@@ -43,6 +46,18 @@
             <p>O grande desafio do século é produzir alimentos de qualidade para a população enquanto protegemos os recursos naturais. Através de práticas como o plantio direto, rotação de culturas e o uso de energias renováveis no campo, o agronegócio avança em harmonia com a preservação ambiental.</p>
         </section>
 
+        <!-- NOVO: Glossário Interativo (Aumenta Complexidade Técnica no HTML/JS) -->
+        <section id="glossario" class="card">
+            <h2>🌱 Dicionário do Agro Sustentável</h2>
+            <p>Clique nos botões abaixo para entender os conceitos fundamentais do equilíbrio ambiental:</p>
+            <div class="botoes-grid">
+                <button class="btn-termo" data-termo="plantio">Plantio Direto</button>
+                <button class="btn-termo" data-termo="rotacao">Rotação de Culturas</button>
+                <button class="btn-termo" data-termo="app">Área de Preservação (APP)</button>
+            </div>
+            <div id="painel-termo" class="painel-info">Selecione um termo para ler a explicação.</div>
+        </section>
+
         <!-- Seção do Jogo de Futebol -->
         <section id="jogo" class="card">
             <h2>⚽ Arena Agrinho: Pênaltis Ecológicos</h2>
@@ -51,9 +66,9 @@
             <div class="placar">
                 <p>Gols Pró-Sustentabilidade: <span id="score-gols">0</span></p>
                 <p>Chutes para Fora (Desperdício): <span id="score-erros">0</span></p>
+                <p>🥇 Recorde: <span id="recorde-gols">0</span></p>
             </div>
 
-            <!-- Cenário Interativo do Gol -->
             <div class="campo-futebol">
                 <div class="trave">
                     <button class="alvo" data-canto="esquerda">Esquerda</button>
@@ -81,10 +96,8 @@
             </form>
             <p id="feedback-form" class="hidden"></p>
         </section>
-
     </main>
 
-    <!-- Rodapé e Créditos -->
     <footer>
         <p>&copy; 2026 Concurso Agrinho. Desenvolvido para a Categoria Programação.</p>
         <p>Créditos: Ícones e Textos criados pelo próprio estudante.</p>
