@@ -16,3 +16,4 @@ Este projeto foi desenvolvido com a intenção de conscientizar estudantes e a c
 ## 🚀 Como Executar
 1. Clone o repositório ou baixe os arquivos.
 2. Abra o arquivo `index.html` diretamente em seu navegador web.
+- **Web Audio API (Nativa):** Utilizada para sintetizar efeitos sonoros em tempo real para os acertos (gols) e erros do jogo, gerando áudio original diretamente por linhas de código.
