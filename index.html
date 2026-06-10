@@ -3,41 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa do Agro Sustentável</title>
+    <title>Copa da Sustentabilidade - Agrinho 2026</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Cabeçalho e Navegação -->
     <header>
-        <h1>🏆 Copa do Mundo do Agro Sustentável 🌿</h1>
-        <p>Produtividade e preservação jogando no mesmo time!</p>
+        <div class="header-container">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <button id="theme-toggle" aria-label="Alternar modo escuro">🌓 Modo Escuro</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre">O Tema</a></li>
+                <li><a href="#jogo">Jogo do Futebol</a></li>
+                <li><a href="#formulario">Participe</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main>
-        <div class="placar">
-            <div class="time">🌽 Milho Safrinha FC: <span id="gols-milho">0</span></div>
-            <div class="versus">X</div>
-            <div class="time">🫛 Soja Biodiesel AC: <span id="gols-soja">0</span></div>
-        </div>
-
-        <div class="campo">
-            <div class="linha-meio"></div>
-            <div class="circulo-central"></div>
-            
-            <div class="gol gol-esquerdo"></div>
-            <div class="gol gol-direito"></div>
-
-            <div id="milho" class="jogador">🌽</div>
-            <div id="soja" class="jogador">🫛</div>
-
-            <div id="bola">⚽</div>
-        </div>
-
-        <section class="info-agro">
-            <h2>Por que esse time é campeão?</h2>
-            <p>A rotação de culturas entre o milho e a soja protege o solo, economiza água e reduz a necessidade de fertilizantes químicos. É o Agro brasileiro batendo um bolão na sustentabilidade!</p>
+        
+        <!-- Seção de Identificação do Usuário -->
+        <section id="boas-vindas" class="card">
+            <h2>Bem-vindo à Jogada Sustentável!</h2>
+            <div class="input-group">
+                <label for="username">Digite seu nome para jogar:</label>
+                <input type="text" id="username" placeholder="Ex: João Silva" autocomplete="off">
+                <button id="btn-iniciar">Iniciar Experiência</button>
+            </div>
+            <p id="saudacao-personalizada" class="hidden"></p>
         </section>
+
+        <!-- Seção Sobre o Tema -->
+        <section id="sobre" class="card">
+            <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+            <p>O grande desafio do século é produzir alimentos de qualidade para a população enquanto protegemos os recursos naturais. Através de práticas como o plantio direto, rotação de culturas e o uso de energias renováveis no campo, o agronegócio avança em harmonia com a preservação ambiental.</p>
+        </section>
+
+        <!-- Seção do Jogo de Futebol -->
+        <section id="jogo" class="card">
+            <h2>⚽ Arena Agrinho: Pênaltis Ecológicos</h2>
+            <p>Escolha um canto para chutar a bola. Marque gols aplicando ações agrícolas sustentáveis!</p>
+            
+            <div class="placar">
+                <p>Gols Pró-Sustentabilidade: <span id="score-gols">0</span></p>
+                <p>Chutes para Fora (Desperdício): <span id="score-erros">0</span></p>
+            </div>
+
+            <!-- Cenário Interativo do Gol -->
+            <div class="campo-futebol">
+                <div class="trave">
+                    <button class="alvo" data-canto="esquerda">Esquerda</button>
+                    <button class="alvo" data-canto="centro">Centro</button>
+                    <button class="alvo" data-canto="direita">Direita</button>
+                </div>
+                <div class="area-bola">
+                    <div id="bola-futebol">⚽</div>
+                </div>
+            </div>
+
+            <p id="feedback-jogo">Aguardando início...</p>
+            <button id="btn-reset-jogo" class="hidden">Reiniciar Partida</button>
+        </section>
+
+        <!-- Seção de Formulário Semântico -->
+        <section id="formulario" class="card">
+            <h2>Sua Ideia Sustentável</h2>
+            <form id="form-ideia">
+                <div class="form-group">
+                    <label for="ideia-texto">Qual ação ecológica você sugere para o campo?</label>
+                    <input type="text" id="ideia-texto" required placeholder="Ex: Uso de drones para economizar água">
+                </div>
+                <button type="submit">Enviar Ideia</button>
+            </form>
+            <p id="feedback-form" class="hidden"></p>
+        </section>
+
     </main>
+
+    <!-- Rodapé e Créditos -->
+    <footer>
+        <p>&copy; 2026 Concurso Agrinho. Desenvolvido para a Categoria Programação.</p>
+        <p>Créditos: Ícones e Textos criados pelo próprio estudante.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
