@@ -1,5 +1,5 @@
 // //////////////////////////////////////////////////////////////////
-// Elementos capturados do DOM (Atendendo ao critério de manipulação)
+// Elementos capturados do DOM
 // //////////////////////////////////////////////////////////////////
 const themeToggle = document.getElementById('theme-toggle');
 const btnIniciar = document.getElementById('btn-iniciar');
@@ -14,12 +14,12 @@ const formIdeia = document.getElementById('form-ideia');
 const feedbackForm = document.getElementById('feedback-form');
 const alvos = document.querySelectorAll('.alvo');
 
-// Variables de controle do estado global (Uso estruturado de variáveis)
+// Variáveis de controle do estado global
 let jogadorNome = "";
 let gols = 0;
 let erros = 0;
 
-// Banco de dados interno das ações sustentáveis da Copa Ecológica
+// Banco de dados das ações sustentáveis
 const acoesSustentaveis = [
     "Plantio direto adotado! O solo reteve mais carbono.",
     "Uso de biofertilizantes validado! Menos impacto químico na terra.",
@@ -28,7 +28,43 @@ const acoesSustentaveis = [
 ];
 
 // //////////////////////////////////////////////////////////////////
-// 🌓 Gerenciamento de Tema (Modo Escuro / Claro via JS)
+// 🔊 Efeitos Sonoros via Web Audio API (Sons 100% Autoria/Código)
+// //////////////////////////////////////////////////////////////////
+function tocarSom(tipo) {
+    // Cria o contexto de áudio do navegador
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    
+    const osc = ctx.createOscillator();
+    const ganho = ctx.createGain();
+    
+    osc.connect(ganho);
+    ganho.connect(ctx.destination);
+
+    if (tipo === 'gol') {
+        // Som festivo ascendente (Apito/Comemoração)
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(300, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.3);
+        ganho.gain.setValueAtTime(0.3, ctx.currentTime);
+        ganho.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.4);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+    } else if (tipo === 'erro') {
+        // Som grave descendente (Bola para fora / Desperdício)
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(150, ctx.currentTime);
+        osc.frequency.linearRampToValueAtTime(60, ctx.currentTime + 0.4);
+        ganho.gain.setValueAtTime(0.2, ctx.currentTime);
+        ganho.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.4);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+    }
+}
+
+// //////////////////////////////////////////////////////////////////
+// 🌓 Gerenciamento de Tema
 // //////////////////////////////////////////////////////////////////
 themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -57,7 +93,7 @@ btnIniciar.addEventListener('click', () => {
 });
 
 // //////////////////////////////////////////////////////////////////
-// ⚽ Mecânica do Jogo de Futebol Sustentável
+// ⚽ Mecânica do Jogo com Efeitos Sonoros e Animação
 // //////////////////////////////////////////////////////////////////
 alvos.forEach(alvo => {
     alvo.addEventListener('click', (evento) => {
@@ -68,38 +104,54 @@ alvos.forEach(alvo => {
 
         const cantoEscolhido = evento.target.getAttribute('data-canto');
         
-        // Simulação de animação da bola dependendo do canto clicado
-        if (cantoEscolhido === 'esquerda') bola.style.transform = 'translate(-80px, -120px)';
-        if (cantoEscolhido === 'centro') bola.style.transform = 'translate(0, -140px)';
-        if (cantoEscolhido === 'direita') bola.style.transform = 'translate(80px, -120px)';
+        // Aplica classe de animação baseada no alvo selecionado
+        bola.style.transition = 'transform 0.4s ease-out, font-size 0.4s ease-out';
+        if (cantoEscolhido === 'esquerda') {
+            bola.style.transform = 'translate(-100px, -140px) scale(0.6)';
+        } else if (cantoEscolhido === 'centro') {
+            bola.style.transform = 'translate(0, -160px) scale(0.6)';
+        } else if (cantoEscolhido === 'direita') {
+            bola.style.transform = 'translate(100px, -140px) scale(0.6)';
+        }
 
-        // Lógica aleatória: O goleiro do desperdício tenta defender
-        const sucessoChute = Math.random() > 0.3; // 70% de chance de gol ecológico
+        // 70% de chance de gol ecológico
+        const sucessoChute = Math.random() > 0.3; 
 
         setTimeout(() => {
             if (sucessoChute) {
                 gols++;
                 scoreGolsTxt.textContent = gols;
-                // Pega uma mensagem educativa aleatória da nossa lista
+                tocarSom('gol'); // Dispara efeito sonoro de gol
+                
+                // Efeito visual na bola de balançar a rede
+                bola.style.transform += ' translateY(-5px)'; 
+                
                 const fraseAleatoria = acoesSustentaveis[Math.floor(Math.random() * acoesSustentaveis.length)];
                 feedbackJogo.textContent = `🎉 GOOOL! ${fraseAleatoria}`;
             } else {
                 erros++;
                 scoreErrosTxt.textContent = erros;
+                tocarSom('erro'); // Dispara efeito sonoro de erro
+                
+                // Desvia a bola para fora do gol
+                if (cantoEscolhido === 'esquerda') bola.style.transform = 'translate(-160px, -180px) scale(0.5)';
+                if (cantoEscolhido === 'centro') bola.style.transform = 'translate(0, -210px) scale(0.5)';
+                if (cantoEscolhido === 'direita') bola.style.transform = 'translate(160px, -180px) scale(0.5)';
+                
                 feedbackJogo.textContent = "❌ Chute para fora! Faltou planejamento sustentável no manejo da terra.";
             }
 
-            // Reseta a bola de volta à marca do pênalti
+            // Reseta a bola de volta à marca do pênalti após 1.5 segundos
             setTimeout(() => {
-                bola.style.transform = 'translate(0, 0)';
-            }, 1000);
+                bola.style.transition = 'transform 0.3s ease-in, font-size 0.3s ease-in';
+                bola.style.transform = 'translate(0, 0) scale(1)';
+            }, 1500);
 
-            // Exibe botão de reiniciar se passar de 5 jogadas totais
             if (gols + erros >= 5) {
                 btnResetJogo.classList.remove('hidden');
             }
 
-        }, 500);
+        }, 400);
     });
 });
 
