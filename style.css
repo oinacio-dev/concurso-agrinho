@@ -1,4 +1,4 @@
-/* Variáveis para controle de cores (Facilita o Modo Escuro) */
+/* Variáveis de Cores */
 :root {
     --bg-color: #f4f9f4;
     --card-bg: #ffffff;
@@ -26,18 +26,18 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
+/* Cabeçalho Corrigido */
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 1rem;
-    text-align: center;
+    padding: 1.5rem 1rem;
 }
 
 .header-container {
@@ -47,108 +47,125 @@ header {
     max-width: 1000px;
     margin: 0 auto;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+}
+
+/* Menu de Navegação Corrigido */
+nav {
+    width: 100%;
+    margin-top: 15px;
 }
 
 nav ul {
-    list-width: 100%;
     display: flex;
     justify-content: center;
     list-style: none;
-    margin-top: 10px;
-    gap: 20px;
+    gap: 30px;
+    padding: 0;
 }
 
 nav a {
-    color: white;
+    color: white !important; /* Força a cor branca tirando o roxo padrão */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s;
 }
 
 nav a:hover {
+    color: #e8f5e9 !important;
     text-decoration: underline;
 }
 
-/* Layout Principal com Flexbox */
+/* Layout Principal */
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 10px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
 .card {
     background-color: var(--card-bg);
-    padding: 20px;
+    padding: 25px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.card:hover {
-    transform: translateY(-2px);
-}
+h1 { font-size: 1.8rem; }
+h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.4rem; }
 
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-/* Elementos de Formulário */
+/* Formulários e Inputs */
 .input-group, .form-group {
     margin: 15px 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-input, button {
-    padding: 10px;
+input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
     border-radius: var(--border-radius);
-    border: 1px solid #ccc;
+    border: 2px solid #ddd;
+    outline: none;
     font-size: 1rem;
 }
 
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
 button {
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
     border: none;
-    transition: background-color var(--transition-speed), transform 0.1s;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed);
+    width: fit-content;
 }
 
 button:hover {
     background-color: var(--secondary-color);
 }
 
-/* Mecânica Visual do Campo de Futebol */
+/* Placar do Jogo */
 .placar {
     display: flex;
     justify-content: space-around;
     font-weight: bold;
-    margin: 15px 0;
+    margin: 20px 0;
     background: #e8f5e9;
-    padding: 10px;
+    padding: 15px;
     border-radius: var(--border-radius);
     color: #2e7d32;
+    border: 1px solid #c8e6c9;
 }
 
+/* Arena do Campo Corrigida */
 .campo-futebol {
     width: 100%;
+    max-width: 500px;
     height: 250px;
     background-color: #2e7d32;
     border: 4px solid white;
+    margin: 20px auto;
     position: relative;
     border-radius: var(--border-radius);
-    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .trave {
-    width: 70%;
-    height: 100px;
-    border: 5px solid white;
+    width: 75%;
+    height: 110px;
+    border: 4px solid white;
     border-top: none;
     margin: 0 auto;
     display: flex;
@@ -157,55 +174,81 @@ button:hover {
     padding-bottom: 10px;
 }
 
+/* Botões de Alvo dentro do Gol */
 .alvo {
-    padding: 5px 15px;
-    font-size: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.25);
     border: 2px dashed white;
+    color: white;
 }
 
 .alvo:hover {
     background-color: var(--accent-color);
+    border-color: transparent;
 }
 
 .area-bola {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 #bola-futebol {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     transition: transform 0.5s ease-in-out;
+    cursor: default;
+    user-select: none;
 }
 
-/* Classes Auxiliares */
-.hidden { display: none; }
-.sucesso { color: #27ae60; font-weight: bold; }
+#feedback-jogo {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0;
+}
 
+/* Alinhamento dos botões de ação abaixo do jogo */
+#jogo button:not(.alvo) {
+    margin: 10px auto;
+    display: block;
+}
+
+/* Classes de Estado */
+.hidden { display: none; }
+.sucesso { color: #27ae60; font-weight: bold; margin-top: 10px; }
+
+/* Rodapé */
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 25px;
+    margin-top: 50px;
     background-color: #2c3e50;
     color: white;
+    font-size: 0.9rem;
 }
 
-/* 📱 Responsividade (Media Queries) */
-@media (max-width: 600px) {
+/* Responsividade Adaptada para Celulares */
+@media (max-width: 650px) {
     .header-container {
         flex-direction: column;
+        text-align: center;
     }
     nav ul {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+    }
+    .placar {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
     .campo-futebol {
-        height: 200px;
+        height: 220px;
     }
     .trave {
-        width: 90%;
+        width: 85%;
+        height: 95px;
     }
 }
