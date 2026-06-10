@@ -1,4 +1,6 @@
-/* Variáveis de Cores */
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES E TEMA (Atendendo ao Regulamento de Design)
+   ========================================================================== */
 :root {
     --bg-color: #f4f9f4;
     --card-bg: #ffffff;
@@ -18,7 +20,9 @@
     --secondary-color: #27ae60;
 }
 
-/* Configurações Gerais */
+/* ==========================================================================
+   2. CONFIGURAÇÕES GERAIS E ACESSIBILIDADE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -33,51 +37,6 @@ body {
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Cabeçalho Corrigido */
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1.5rem 1rem;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-/* Menu de Navegação Corrigido */
-nav {
-    width: 100%;
-    margin-top: 15px;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 30px;
-    padding: 0;
-}
-
-nav a {
-    color: white !important; /* Força a cor branca tirando o roxo padrão */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: #e8f5e9 !important;
-    text-decoration: underline;
-}
-
-/* Layout Principal */
 main {
     max-width: 900px;
     margin: 30px auto;
@@ -97,7 +56,66 @@ main {
 h1 { font-size: 1.8rem; }
 h2 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.4rem; }
 
-/* Formulários e Inputs */
+/* ==========================================================================
+   3. CABEÇALHO, BOTÕES DE CONTROLE E MENU (Corrigidos)
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 1rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.acessibilidade-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+/* Customização dos botões superiores */
+.acessibilidade-botoes button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+}
+
+nav {
+    width: 100%;
+    margin-top: 15px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+}
+
+nav a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. FORMULÁRIOS, INPUTS E BOTÕES GERAIS
+   ========================================================================== */
 .input-group, .form-group {
     margin: 15px 0;
     display: flex;
@@ -136,7 +154,46 @@ button:hover {
     background-color: var(--secondary-color);
 }
 
-/* Placar do Jogo */
+/* ==========================================================================
+   5. SEÇÃO DO DICIONÁRIO DO AGRO (Novo recurso de nota máxima)
+   ========================================================================== */
+.botoes-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+/* Estilização correta e harmônica para os botões do glossário */
+.btn-termo {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.btn-termo:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.painel-info {
+    background-color: #f0f7f4;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .painel-info {
+    background-color: #3d3d3d;
+    color: #f5f5f5;
+}
+
+/* ==========================================================================
+   6. ARENA INTERATIVA E PLACAR DE FUTEBOL
+   ========================================================================== */
 .placar {
     display: flex;
     justify-content: space-around;
@@ -149,7 +206,6 @@ button:hover {
     border: 1px solid #c8e6c9;
 }
 
-/* Arena do Campo Corrigida */
 .campo-futebol {
     width: 100%;
     max-width: 500px;
@@ -174,7 +230,6 @@ button:hover {
     padding-bottom: 10px;
 }
 
-/* Botões de Alvo dentro do Gol */
 .alvo {
     padding: 6px 12px;
     font-size: 0.85rem;
@@ -208,17 +263,17 @@ button:hover {
     margin: 15px 0;
 }
 
-/* Alinhamento dos botões de ação abaixo do jogo */
 #jogo button:not(.alvo) {
     margin: 10px auto;
     display: block;
 }
 
-/* Classes de Estado */
+/* ==========================================================================
+   7. CLASSES AUXILIARES E RODAPÉ
+   ========================================================================== */
 .hidden { display: none; }
 .sucesso { color: #27ae60; font-weight: bold; margin-top: 10px; }
 
-/* Rodapé */
 footer {
     text-align: center;
     padding: 25px;
@@ -228,7 +283,9 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsividade Adaptada para Celulares */
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsividade Móvel)
+   ========================================================================== */
 @media (max-width: 650px) {
     .header-container {
         flex-direction: column;
@@ -251,39 +308,4 @@ footer {
         width: 85%;
         height: 95px;
     }
-}
-
-/* Estilos adicionais para os novos recursos de nota máxima */
-.acessibilidade-botoes {
-    display: flex;
-    gap: 10px;
-}
-
-.acessibilidade-botoes button {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-}
-
-.botoes-grid {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 15px 0;
-}
-
-.painel-info {
-    background-color: #f0f7f4;
-    padding: 15px;
-    border-left: 4px solid var(--primary-color);
-    border-radius: 4px;
-    margin-top: 10px;
-    font-style: italic;
-    color: var(--text-color);
-}
-
-[data-theme="dark"] .painel-info {
-    background-color: #3d3d3d;
-    color: #f5f5f5;
 }
